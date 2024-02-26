@@ -27,6 +27,7 @@ else:
 if struct.calcsize('P') < 8: arch_levels = {k:v for k, v in arch_levels.items() if k in ('', 'sse2')}
 else: arch_levels = {k:v for k, v in arch_levels.items() if k not in ('sse2',)}
 
+cargs.append('-I/usr/include/eigen3')
 modules = []
 for arch, aopt in arch_levels.items():
     module_name = '_lamonpy' + ('_' + arch if arch else '')
